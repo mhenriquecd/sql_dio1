@@ -68,8 +68,6 @@ create table if not exists vendedor(
     constraint unique_CNPJ_vendedor unique(CNPJ)
 );
 
--- criar relacionamento produto_vendedor
-
 create table if not exists produto_vendedor(
 	idproduto int,
     idVendedor int,
@@ -79,7 +77,6 @@ create table if not exists produto_vendedor(
     constraint fk_produto_produto foreign key(idProduto) references produto(idProduto)
 );
 
--- criar tabela de relacionamento produto_pedido
 create table if not exists produto_pedido(
 	idProduto int,
     idPedido int,
@@ -90,7 +87,6 @@ create table if not exists produto_pedido(
     constraint fk_request_produto foreign key(idPedido) references Pedido(idPedido)
 );
 
--- criar tabela estoque
 create table if not exists estoque_localizacao(
 	idProduto int,
     idEstoque int,
@@ -100,8 +96,6 @@ create table if not exists estoque_localizacao(
     constraint fk_Estoque_Produto foreign key(idEstoque) references estoque(idEstoque)
 );
 
-
--- criar tabela de relacionameto produto/fornecedor
 create table if not exists produto_fornecedor(
 	idFornecedor int,
     idProduto int,
